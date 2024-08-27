@@ -1,21 +1,22 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MyProducts.aspx.cs" Inherits="grp_assignment.MyProducts" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="MyProducts.aspx.cs" Inherits="grp_assignment.MyProducts" %>
 
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <!DOCTYPE html>
+
     <title>Product Display</title>
+    <link rel="stylesheet" href="MasterFooterStyle.css" />
     <style>
         .title {
-            font-size: 64px; 
-            line-height: 60px; 
-            float: left; 
-            font-weight: 400; 
-            font-family: Algerian; 
+            font-size: 64px;
+            line-height: 60px;
+            float: left;
+            font-weight: 400;
+            font-family: Algerian;
             line-height: 120px;
             margin-left: 20px;
             text-shadow: 1.5px 1.5px 3px black;
         }
-        
+
         .product-container {
             display: flex;
             flex-wrap: wrap;
@@ -26,6 +27,7 @@
             margin-top: 30px;
             object-fit: cover;
         }
+
         .product-box {
             width: 20%;
             height: 500px;
@@ -35,12 +37,15 @@
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
+            background-color: white;
         }
-        .product-box img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-        }
+
+            .product-box img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+
         .product-info {
             position: absolute;
             bottom: 0;
@@ -51,19 +56,23 @@
             font-size: 18px;
             font-weight: 600;
         }
+
         .product-description {
             display: none;
             margin-right: 20px;
             padding-right: 10px;
             font-weight: 400;
         }
+
         .product-box:hover .product-info {
             transform: translateY(0);
         }
+
         .product-box:hover .product-description {
             display: block;
             transition: transform 0.3s ease-in-out;
         }
+
         .addButton {
             margin-top: 50px;
             background-color: #FFFACA;
@@ -74,28 +83,33 @@
             height: 100px;
             font-size: 24px;
             font-weight: 600;
-            font-family: Algerian; 
+            font-family: Algerian;
             color: black;
         }
-        .addButton:hover {
-            background-color: #967B5C;
-            color: white;
-            text-shadow: 1.5px 1.5px 3px black;
-            transition: background-color linear 0.5s;
+
+            .addButton:hover {
+                background-color: #967B5C;
+                color: white;
+                text-shadow: 1.5px 1.5px 3px black;
+                transition: background-color linear 0.5s;
+            }
+        .mb-100 {
+            margin-bottom: 100px;
+            background-color: #FDFBEC;
         }
     </style>
-</head>
-<body>
-    <form id="form1" runat="server" style="margin-bottom: 80px;">
+</asp:Content>
+<asp:Content ID="Content" ContentPlaceHolderID="content1" runat="server">
+    <div class="mb-100">
         <center>
-            <%-- Title for My Products page --%>
+            <%-- title for My Products page --%>
             <div style="border: 0px solid red; height: 120px; width: fit-content; margin-top: 30px;">
-                <img src="/assets/poker-cards.png" alt="" style="height: 110px; float: left;"/>
+                <img src="/assets/poker-cards.png" alt="" style="height: 110px; float: left;" />
                 <span class="title">My Products</span>
             </div>
         </center>
         <div class="product-container">
-            <%-- Keep making product container for each row in the table --%>
+            <%-- keep making product container for each row in the table --%>
             <asp:Repeater ID="Repeater1" runat="server">
                 <ItemTemplate>
                     <div class="product-box">
@@ -113,9 +127,11 @@
             </asp:Repeater>
         </div>
         <center>
-            <asp:Button runat="server" ID="addButton" OnClick="addButton_Click" Text="Add Product" CssClass="addButton" />
+            <asp:Button runat="server" ID="addButton" OnClick="AddButton_Click" Text="Add Product" CssClass="addButton" />
+            <asp:Panel runat="server" Height="50px"></asp:Panel>
         </center>
-    </form>
+    </div>
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             var productBoxes = document.querySelectorAll(".product-box");
@@ -142,5 +158,4 @@
             });
         });
     </script>
-</body>
-</html>
+</asp:Content>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -41,7 +42,8 @@ namespace grp_assignment
 
 
             try {
-                SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-ADKV1JSS\SQLEXPRESS01;Initial Catalog=CardCraze;Integrated Security=True;Encrypt=False");
+                string connectionString = ConfigurationManager.ConnectionStrings["cardcrazeConnectionString"].ConnectionString;
+                SqlConnection con = new SqlConnection(connectionString);
                 con.Open();
                 string checkEmailQuery = "SELECT COUNT(*) FROM [user] WHERE User_email = @User_email";
                 SqlCommand checkCmd = new SqlCommand(checkEmailQuery, con);
@@ -54,7 +56,7 @@ namespace grp_assignment
                     return;
                 }
 
-                // Insert new user
+                // insert new user
                 string insertQuery = "INSERT INTO [user] (User_email, User_password) VALUES (@User_email, @User_password)";
                 SqlCommand cmd = new SqlCommand(insertQuery, con);
                 cmd.Parameters.AddWithValue("@User_email", email);

@@ -8,19 +8,17 @@
 }
 
 .entire-screen {
+
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    width: 100vw;
 }
 
 .main-card {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 96%;
-    height: 96%;
+ 
     box-shadow: 0 1px 4px 0 rgba(0,0,0,0.5);
     border-radius: 20px;
     background-color: white;
@@ -286,7 +284,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
+    height: 100vh;
     width: 50%;
     border-bottom-right-radius: 20px;
     border-top-right-radius: 20px;
@@ -322,6 +320,8 @@
 }
 
 .os-text {
+    font-size: 1.4rem;
+    font-weight: 600;
 }
 
 .c-container {
@@ -371,19 +371,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 10px;
     margin-left: 10px;
-    margin-top: 16px;
     border-radius: 40px;
     box-shadow: inset 0 1px 4px 0 rgba(0,0,0,0.2);
-    width: 14vw;
+    width: 12vw;
     height: min-content;
 }
 
 .card-qt-text {
     font-weight: 600;
     color: #565656;
-    font-size: 1rem;
+    font-size: 0.9rem;
     margin: 0;
 }
 

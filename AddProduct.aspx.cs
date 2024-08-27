@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
@@ -16,11 +17,13 @@ namespace grp_assignment
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Here needs to use personal connection string
-            SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-ADKV1JSS\SQLEXPRESS01;Initial Catalog=CardCraze;Integrated Security=True");
+            if (Session["User_id"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
         }
 
-        protected void uploadButton_click(object sender, EventArgs e)
+        protected void UploadButton_Click(object sender, EventArgs e)
         {
             string name = System.IO.Path.GetFileName(ImageUpload.PostedFile.FileName);
             string type = name.Substring(name.LastIndexOf(".") + 1);
@@ -29,11 +32,11 @@ namespace grp_assignment
             fs.Read(content, 0, content.Length);
             fs.Close();
 
-            // Here needs to use personal connection string
-            SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-ADKV1JSS\SQLEXPRESS01;Initial Catalog=CardCraze;Integrated Security=True");
+            string connectionString = ConfigurationManager.ConnectionStrings["cardcrazeConnectionString"].ConnectionString;
+            SqlConnection con = new SqlConnection(connectionString);
             SqlCommand cmd = con.CreateCommand();
             con.Open();
-            // One table only includes imgID and image(byte[])
+            // one table only includes imgID and image(byte[])
             // to ensure the one shown on the page and stored in the database is the final chosen one
             cmd.CommandText = "insert into product(Image_Content) values(@content)";
             cmd.CommandType = CommandType.Text;
@@ -45,21 +48,22 @@ namespace grp_assignment
                 cmd.ExecuteNonQuery();
             }
 
-            // After uploading the image into the databse, the background image of image-upload frame will be changed to uploaded one
-            // Another webform is created to read the image byte[] and restore back to image format
+            // after uploading the image into the databse, the background image of image-upload frame will be changed to uploaded one
+            // another webform is created to read the image byte[] and restore back to image format
             cardImg.ImageUrl = "ImageCont.aspx";
             con.Close();
         }
 
-        protected void deleteButton_click(object sender, EventArgs e)
+        protected void DeleteButton_Click(object sender, EventArgs e)
         {
-            // Here needs to use personal connection string
-            SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-ADKV1JSS\SQLEXPRESS01;Initial Catalog=CardCraze;Integrated Security=True");
+            // here needs to use personal connection string
+            string connectionString = ConfigurationManager.ConnectionStrings["cardcrazeConnectionString"].ConnectionString;
+            SqlConnection con = new SqlConnection(connectionString);
             SqlCommand cmd = con.CreateCommand();
             con.Open();
-            // If user wants to change anothter one image, after clicking "DELETE" button,
+            // if user wants to change anothter one image, after clicking "DELETE" button,
             // the record in DB is deleted
-            cmd.CommandText = "DELETE FROM CardCraze.dbo.product WHERE imgID = (SELECT MAX(imgID) FROM product)";
+            cmd.CommandText = "DELETE FROM product WHERE imgID = (SELECT MAX(imgID) FROM product)";
             cmd.CommandType = CommandType.Text;
             cmd.ExecuteNonQuery();
 
@@ -68,10 +72,10 @@ namespace grp_assignment
             cardImg.ImageUrl = "/assets/bg.png";
         }
 
-        protected void saveButton_click(object sender, EventArgs e)
+        protected void SaveButton_Click(object sender, EventArgs e)
         {
             
-            // Empty checking
+            // empty checking
             // if the bg-img of img-uplaod frame is still default one -> haven't confirmed to upload any image
             // if empty info exists, the error image will pop out and also the page will not be redirected
             if (prodName.Text == "" || prodDesp.Text == "" || price.Text == "" || stock.Text == "" || type.Text == "" || cardImg.ImageUrl == "/assets/bg.png")
@@ -86,33 +90,25 @@ namespace grp_assignment
                 errorMsg.Height = 0;
                 errorMsg.Text = "";
 
-                // Here needs to use personal connection string
+                // here needs to use personal connection string
                 // cmd1 is used to fetch the image id info & cmd2 is for image info (byte[])
                 // after fetching imgID & image info, cmd is used to insert all data filled into the table
-                SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-ADKV1JSS\SQLEXPRESS01;Initial Catalog=CardCraze;Integrated Security=True");
-                SqlCommand cmd = con.CreateCommand();
-                SqlCommand cmd1 = con.CreateCommand();
-                SqlCommand cmd2 = con.CreateCommand();
-                con.Open();
+                string connectionString = ConfigurationManager.ConnectionStrings["cardcrazeConnectionString"].ConnectionString;
+                SqlConnection con = new SqlConnection(connectionString);
 
-                // maximum imgID means that the corresponding image the the latest-uploaded one -> final selected one
-                cmd1.CommandText = "SELECT MAX(imgID) FROM CardCraze.dbo.product";
-                cmd1.CommandType = CommandType.Text;
-                object imgIDobj = cmd1.ExecuteScalar();
+                con.Open();
+                SqlCommand cmd = new SqlCommand("SELECT MAX(imgID) FROM product", con);
+                object imgIDobj = cmd.ExecuteScalar();
                 decimal imgID = Convert.ToDecimal(imgIDobj);
 
                 // load the image info which matched with the maximum imgID
-                cmd2.CommandText = "SELECT Image_Content FROM CardCraze.dbo.product WHERE imgID = (SELECT MAX(imgID) FROM product)";
-                cmd2.CommandType = CommandType.Text;
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd2);
+                cmd = new SqlCommand("SELECT Image_Content FROM product WHERE imgID = (SELECT MAX(imgID) FROM product)", con);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 byte[] imageData = (byte[])dt.Rows[0]["Image_Content"];
 
-                // load the actual values of each items and insert into the table
-                cmd.CommandText = "INSERT INTO products(prodName, Description, Price, Stock, Category, Type, ImageID, ImageCont) values" +
-                    "(@name, @desp, @price, @stock, @ctg, @type, @imgID, @imgCont)";
-                cmd.CommandType = CommandType.Text;
+                cmd = new SqlCommand("INSERT INTO products(prodName, Description, Price, Stock, Category, Type, ImageID, ImageCont, userid) values (@name, @desp, @price, @stock, @ctg, @type, @imgID, @imgCont, @userid)", con);
                 cmd.Parameters.AddWithValue("@name", prodName.Text);
                 cmd.Parameters.AddWithValue("@desp", prodDesp.Text);
                 cmd.Parameters.AddWithValue("@price", price.Text);
@@ -121,12 +117,15 @@ namespace grp_assignment
                 cmd.Parameters.AddWithValue("@type", type.Text);
                 cmd.Parameters.AddWithValue("@imgID", imgID);
                 cmd.Parameters.AddWithValue("@imgCont", imageData);
+                int userId = Convert.ToInt32(Session["User_id"]);
+                cmd.Parameters.AddWithValue("@userid", userId);
                 cmd.ExecuteNonQuery();
-            }
 
-            // when finishing adding products, the page will be redirected to My Product page,
-            // where can view the updated new product info
-            Response.Redirect("MyProducts.aspx");
+                // when finishing adding products, the page will be redirected to My Product page,
+                // where can view the updated new product info
+                Response.Redirect("MyProducts.aspx");
+            }
+            
 
         }
     }

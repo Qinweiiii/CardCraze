@@ -11,88 +11,79 @@ namespace grp_assignment
 {
 
 
-    public partial class AddProduct
+    public partial class Store
     {
 
         /// <summary>
-        /// errorMsg 控件。
+        /// Button1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label errorMsg;
+        protected global::System.Web.UI.WebControls.Button Button1;
 
         /// <summary>
-        /// prodName 控件。
+        /// Button2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox prodName;
+        protected global::System.Web.UI.WebControls.Button Button2;
 
         /// <summary>
-        /// prodDesp 控件。
+        /// CategoryButtonsPanel 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox prodDesp;
+        protected global::System.Web.UI.WebControls.Panel CategoryButtonsPanel;
 
         /// <summary>
-        /// price 控件。
+        /// AllButton 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox price;
+        protected global::System.Web.UI.WebControls.Button AllButton;
 
         /// <summary>
-        /// stock 控件。
+        /// KpopButton 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox stock;
+        protected global::System.Web.UI.WebControls.Button KpopButton;
 
         /// <summary>
-        /// ctgList 控件。
+        /// NbaButton 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ctgList;
+        protected global::System.Web.UI.WebControls.Button NbaButton;
 
         /// <summary>
-        /// type 控件。
+        /// Button4 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox type;
+        protected global::System.Web.UI.WebControls.Button Button4;
 
         /// <summary>
-        /// cardImg 控件。
+        /// Repeater1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image cardImg;
-
-        /// <summary>
-        /// ImageUpload 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload ImageUpload;
+        protected global::System.Web.UI.WebControls.Repeater Repeater1;
     }
 }

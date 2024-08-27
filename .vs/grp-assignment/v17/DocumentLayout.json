@@ -1,14 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\XIAMEN\\year 3 sem 3\\PE\\grp-assignment\\",
+  "WorkspaceRootPath": "C:\\Users\\ILLEGEAR\\Desktop\\grp-assignment (1)\\grp-assignment\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9FD9C1C8-EDD5-41C0-BFD2-FF062C7B6358}|grp-assignment.csproj|e:\\xiamen\\year 3 sem 3\\pe\\grp-assignment\\register.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{9FD9C1C8-EDD5-41C0-BFD2-FF062C7B6358}|grp-assignment.csproj|solutionrelative:register.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{9FD9C1C8-EDD5-41C0-BFD2-FF062C7B6358}|grp-assignment.csproj|c:\\users\\illegear\\desktop\\grp-assignment (1)\\grp-assignment\\store.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FD9C1C8-EDD5-41C0-BFD2-FF062C7B6358}|grp-assignment.csproj|solutionrelative:store.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9FD9C1C8-EDD5-41C0-BFD2-FF062C7B6358}|grp-assignment.csproj|E:\\XIAMEN\\year 3 sem 3\\PE\\grp-assignment\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{9FD9C1C8-EDD5-41C0-BFD2-FF062C7B6358}|grp-assignment.csproj|solutionrelative:login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{9FD9C1C8-EDD5-41C0-BFD2-FF062C7B6358}|grp-assignment.csproj|c:\\users\\illegear\\desktop\\grp-assignment (1)\\grp-assignment\\store.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{9FD9C1C8-EDD5-41C0-BFD2-FF062C7B6358}|grp-assignment.csproj|solutionrelative:store.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,32 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Register.aspx",
-              "DocumentMoniker": "E:\\XIAMEN\\year 3 sem 3\\PE\\grp-assignment\\Register.aspx",
-              "RelativeDocumentMoniker": "Register.aspx",
-              "ToolTip": "E:\\XIAMEN\\year 3 sem 3\\PE\\grp-assignment\\Register.aspx",
-              "RelativeToolTip": "Register.aspx",
+              "DocumentIndex": 1,
+              "Title": "Store.aspx",
+              "DocumentMoniker": "C:\\Users\\ILLEGEAR\\Desktop\\grp-assignment (1)\\grp-assignment\\Store.aspx",
+              "RelativeDocumentMoniker": "Store.aspx",
+              "ToolTip": "C:\\Users\\ILLEGEAR\\Desktop\\grp-assignment (1)\\grp-assignment\\Store.aspx",
+              "RelativeToolTip": "Store.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-07-01T07:55:00.945Z",
+              "WhenOpened": "2024-07-07T10:21:40.381Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Login.aspx",
-              "DocumentMoniker": "E:\\XIAMEN\\year 3 sem 3\\PE\\grp-assignment\\Login.aspx",
-              "RelativeDocumentMoniker": "Login.aspx",
-              "ToolTip": "E:\\XIAMEN\\year 3 sem 3\\PE\\grp-assignment\\Login.aspx",
-              "RelativeToolTip": "Login.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-07-01T07:50:18.121Z",
+              "DocumentIndex": 0,
+              "Title": "Store.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\ILLEGEAR\\Desktop\\grp-assignment (1)\\grp-assignment\\Store.aspx.cs",
+              "RelativeDocumentMoniker": "Store.aspx.cs",
+              "ToolTip": "C:\\Users\\ILLEGEAR\\Desktop\\grp-assignment (1)\\grp-assignment\\Store.aspx.cs",
+              "RelativeToolTip": "Store.aspx.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAACAAAABSAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-07T09:58:20.213Z",
               "EditorCaption": ""
             }
           ]

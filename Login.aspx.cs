@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -33,21 +34,31 @@ namespace grp_assignment
 
             try
             {
-                SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-ADKV1JSS\SQLEXPRESS01;Initial Catalog=CardCraze;Integrated Security=True;Encrypt=False");
+                string connectionString = ConfigurationManager.ConnectionStrings["cardcrazeConnectionString"].ConnectionString;
+                SqlConnection con = new SqlConnection(connectionString);
                 con.Open();
                 string checkUserQuery = "SELECT COUNT(*) FROM [user] WHERE User_email = @User_email AND User_password = @User_password";
                 SqlCommand cmd = new SqlCommand(checkUserQuery, con);
                 cmd.Parameters.AddWithValue("@User_email", email);
                 cmd.Parameters.AddWithValue("@User_password", password);
                 int userExists = (int)cmd.ExecuteScalar();
-
+                string query = "SELECT Userno FROM [user] WHERE User_email = @User_email AND User_password = @User_password";
+               
                 if (userExists == 0)
                 {
                     ErrorMessage.Text = "Invalid email or password.";
                     return;
                 }
+
+                cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@User_email", email);
+                cmd.Parameters.AddWithValue("@User_password", password);
+                object result = cmd.ExecuteScalar();
+
+                int userId = Convert.ToInt32(result);
+                Session["User_id"] = userId;
                 Session["User_email"] = email;
-                Response.Redirect("Test.aspx");
+                Response.Redirect("Store.aspx");
             }
             catch (Exception ex)
             {

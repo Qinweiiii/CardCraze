@@ -14,6 +14,10 @@ namespace grp_assignment
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["User_id"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
             if (!IsPostBack)
             {
                 BindRepeater();
@@ -22,25 +26,20 @@ namespace grp_assignment
 
         private void BindRepeater()
         {
-            // Here needs to use personal connection string
-            SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-ADKV1JSS\SQLEXPRESS01;Initial Catalog=CardCraze;Integrated Security=True");
-            using (conn)
-            {
-                using (SqlCommand cmd = new SqlCommand("SELECT prodID, prodName, Price, Stock, ImageCont, Description FROM products", conn))
-                {
-                    cmd.CommandType = CommandType.Text;
-                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
-                    {
-                        DataTable dt = new DataTable();
-                        sda.Fill(dt);
-                        Repeater1.DataSource = dt;
-                        Repeater1.DataBind();
-                    }
-                }
-            }
+            string connectionString = ConfigurationManager.ConnectionStrings["cardcrazeConnectionString"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connectionString);
+            SqlCommand cmd = new SqlCommand("SELECT prodID, prodName, Price, Stock, ImageCont, Description FROM products WHERE userid = @userid", conn);
+            int userId = Convert.ToInt32(Session["User_id"]);
+            cmd.Parameters.AddWithValue("@userid", userId);
+            cmd.CommandType = CommandType.Text;
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            Repeater1.DataSource = dt;
+            Repeater1.DataBind();
         }
 
-        protected void addButton_Click(object sender, EventArgs e)
+        protected void AddButton_Click(object sender, EventArgs e)
         {
             Response.Redirect("AddProduct.aspx");
         }

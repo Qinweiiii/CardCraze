@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -13,7 +14,8 @@ namespace grp_assignment
         protected void Page_Load(object sender, EventArgs e)
         {
             string imgid = Request.QueryString["imgid"];
-            SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-ADKV1JSS\SQLEXPRESS01;Initial Catalog=CardCraze;Integrated Security=True");
+            string connectionString = ConfigurationManager.ConnectionStrings["cardcrazeConnectionString"].ConnectionString;
+            SqlConnection con = new SqlConnection(connectionString);
             // get the maximum prodID - matches with the latest-uploaded image
             SqlCommand cmd1 = new SqlCommand("select Image_Content from product where imgID = (SELECT MAX(imgID) FROM product)", con);
             con.Open();
