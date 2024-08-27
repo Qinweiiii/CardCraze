@@ -1,0 +1,152 @@
+﻿body {
+}
+
+.formBody {
+    background-color: floralwhite;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    padding: 20px;
+    height: 780px;
+    width: 50%;
+    border: 2px solid #F9E16D;
+    border-radius: 20px;
+    text-align: left;
+}
+
+.formBody .formTitle {
+    margin-left: 25px;
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    height: 40px;
+    line-height: 40px;
+}
+
+.formBody .formBlank {
+    background-color: white;
+    margin-left: 20px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 400;
+    height: 40px;
+    width: 90%;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.formBody .formBlankDesp {
+    background-color: white;
+    margin-left: 20px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 400;
+    height: 100px;
+    width: 90%;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.formBody .subTable .imgUpload {
+    background-size: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    height: 245px;
+    width: 45%;
+    border: 1.5px dashed black;
+    border-radius: 12px;
+}
+
+.formBody .subTable .fileUpload {
+    margin-left: 20%;
+}
+
+.formBody .subTable .uploadButton {
+    margin: 10px;
+    height: 40px;
+    width: 25%;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    background-color: blue;
+    border: none;
+    box-shadow: darkblue -2px -3px inset;
+    color: white;
+}
+
+.formBody .subTable .deleteButton {
+    margin: 10px;
+    height: 40px;
+    width: 25%;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    background-color: red;
+    border: none;
+    box-shadow: darkred -2px -2px inset;
+    color: white;
+}
+
+.formBody .subTable .uploadButton:hover, 
+.formBody .subTable .deleteButton:hover {
+    border: 1px solid black;
+    border-radius: 10px;
+    color: white;
+    background-color: black;
+    box-shadow: rgba(0,0,0,0.4) -2px -2px inset;
+    transition: background-color linear 0.5s;
+}
+
+.formBody .subTable {
+    padding: 0px 20px 20px 20px;
+}
+
+.formBody .subTable .rowTitle {
+    margin-left: 5px;
+    margin-top: 0px;
+    font-size: 16px;
+    font-weight: 600;
+    height: 30px;
+    line-height: 30px;
+}
+
+.formBody .subTable .rowBlank {
+    background-color: white;
+    margin-left: 0px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 400;
+    height: 40px;
+    width: 90%;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.formBody .addButton {
+    margin-top: 10px;
+    height: 70px;
+    width: 160px;
+    font-size: 20px;
+    font-weight: 600;
+    border: none;
+    border-radius: 15px;
+    background-color: #CDA542;
+    color: white;
+    box-shadow: rgba(0,0,0,0.2) -2px -3px inset;
+}
+
+.formBody .addButton:hover {
+    background-color: #F2DCA6;
+    color: black;
+    transition: background-color linear 0.3s;
+}

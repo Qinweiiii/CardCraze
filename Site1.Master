@@ -1,0 +1,272 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="grp_assignment.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style>
+        .title {
+            font-size: 48px; 
+            line-height: 70px; 
+            float: left; 
+            font-weight: 400; 
+            font-family: Algerian; 
+            margin-left: 20px;
+            text-shadow: 1.5px 1.5px 3px black;
+        }
+        #nav {
+            background-color: #FEF6CD;
+            padding: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            position: relative;
+            left: 40%;
+        }
+
+        li a {
+            color: #000000;
+            font-size: 30px;
+            column-width: 60%;
+        }
+
+        li {
+            display: inline;
+            padding-left: 5px;
+            column-width: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        li a:hover {
+            color: black;
+            font-style: italic;
+            font-weight: 600;
+            padding: 1%;
+        }
+
+        #side {
+            text-align: center;
+            float: right;
+            width: 15%;
+            padding-bottom: 79%;
+            background-color: #F1FAEE;
+        }
+
+        #article {
+            background-color: #EEF5DB;
+            padding: 10px;
+            padding-bottom: 75%;
+        }
+
+        #footer {
+            background-color: #C7EFCF;
+            text-align: center;
+            padding-bottom: 5%;
+            font-size: 20px;
+        }
+
+        #con {
+            border: double;
+            border-color: burlywood;
+        }
+    </style>
+</head>
+<body>
+    <nav id="nav">
+        <img src="/assets/logo.png" alt="" style="height: 80px; float: left; margin-left: 20px;"/>
+        <span class="title">CardCraze</span>
+        <ul>
+            <li><a href="home.aspx">Home</a></li>
+            <li><a href="MyProducts.aspx">MyProduct</a></li>
+            <li><a href="AddProduct.aspx">AddProduct</a></li>
+            <li><a href="Register.aspx">Contact</a></li>
+        </ul>
+    </nav>
+    <p id="con">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+    </p>
+    <footer>
+        <%-- Entire footer --%>
+        <div class="footer-container">
+            <div class="top-footer">
+                <%-- First column (Customer Service) --%>
+                <div class="customer-service">
+                    <div class="header-container">
+                        <h1 class="header-text">CUSTOMER SERVICE</h1>
+                    </div>
+                    <ul class="cs-contents">
+                        <li>
+                            <asp:HyperLink ID="hc" runat="server" CssClass="link" NavigateUrl="https://www.facebook.com/jupeng.ng" >Help Centre</asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="htb" runat="server" CssClass="link" NavigateUrl="https://www.facebook.com/jupeng.ng" >How To Buy</asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="hts" runat="server" CssClass="link" NavigateUrl="https://www.facebook.com/jupeng.ng" >How To Sell</asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="fsp" runat="server" CssClass="link" NavigateUrl="https://www.facebook.com/jupeng.ng" >CardCraze Free Shipping Program</asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="rnr" runat="server" CssClass="link" NavigateUrl="https://www.facebook.com/jupeng.ng" >Return & Refund</asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="sst" runat="server" CssClass="link" NavigateUrl="https://www.facebook.com/jupeng.ng" >Scam Safety Tips</asp:HyperLink>
+                        </li>
+                    </ul>
+                </div>
+                <%-- Second column (About CardCraze) --%>
+                <div class="about-cc">
+                    <div class="header-container">
+                        <h1 class="header-text">CARDCRAZE</h1>
+                    </div>
+                    <ul class="cc-contents">
+                        <li>
+                            <asp:HyperLink ID="HyperLink1" runat="server" CssClass="link" NavigateUrl="https://www.facebook.com/jupeng.ng" >About CardCraze</asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink2" runat="server" CssClass="link" NavigateUrl="https://www.facebook.com/jupeng.ng" >Affiliated Program</asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink3" runat="server" CssClass="link" NavigateUrl="https://www.facebook.com/jupeng.ng" >Careers</asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink4" runat="server" CssClass="link" NavigateUrl="https://www.facebook.com/jupeng.ng" >Terms & Condition</asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink5" runat="server" CssClass="link" NavigateUrl="https://www.facebook.com/jupeng.ng" >Privacy Policy</asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink6" runat="server" CssClass="link" NavigateUrl="https://www.facebook.com/jupeng.ng" >Seller Centre</asp:HyperLink>
+                        </li>
+                    </ul>
+                </div>
+                <%-- Third column (Payment Methods) --%>
+                <div class="about-cc">
+                    <div class="header-container">
+                        <h1 class="header-text">PAYMENT METHODS</h1>
+                    </div>
+                    <ul class="cc-contents">
+                        <li>
+                            <div class="payment-img-container">
+                                <asp:Image ID="visa" runat="server" ImageUrl="https://1000logos.net/wp-content/uploads/2017/06/VISA-Logo-1992.png"/>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="payment-img-container">
+                                <asp:Image ID="master" runat="server" ImageUrl="https://i.pinimg.com/originals/38/2f/0a/382f0a8cbcec2f9d791702ef4b151443.png"/>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="payment-img-container">
+                                <asp:Image ID="tng"  runat="server" ImageUrl="https://emenu.com.my/_nuxt/img/tng-wallet-background.c72b798.jpg"/>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <%-- Fourth column (Delivery Service) --%>
+                <div class="delivery-service">
+                    <div class="header-container">
+                        <h1 class="header-text">DELIVERY PARTNER</h1>
+                    </div>
+                    <ul class="cc-contents">
+                        <li>
+                            <div class="max3-col">
+                                <div class="d-img-container">
+                                    <asp:Image ID="ninja" runat="server" ImageUrl="https://1000logos.net/wp-content/uploads/2022/08/Ninja-Van-Logo.png"/>
+                                </div>
+                               <div class="d-img-container">
+                                   <asp:Image ID="sky" runat="server" ImageUrl="https://skynetworldwide.de/fileadmin/_processed_/3/9/csm_LS_skynet_Logo_original_PNG_3c09aebf41.png"/>
+                               </div>
+                               <div class="d-img-container">
+                                   <asp:Image ID="jnt" runat="server" ImageUrl="https://1000logos.net/wp-content/uploads/2022/08/JT-Express-Logo.png"/>
+                               </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="max3-col">
+                               <div class="d-img-container">
+                                   <asp:Image ID="Image1" runat="server" ImageUrl="https://vectorlogo4u.com/wp-content/uploads/2018/09/poslaju-logo-vector.png"/>
+                               </div>
+                               <div class="d-img-container">
+                                   <asp:Image ID="Image2" runat="server" ImageUrl="https://mytrackcdn.com/images/couriers/kex.png.webp"/>
+                               </div>
+                               <div class="d-img-container">
+                                   <asp:Image ID="Image4" runat="server" ImageUrl="https://ep-website-media.s3.ap-southeast-1.amazonaws.com/my/wp-content/uploads/2022/12/Flash_Express.png"/>
+                               </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="d-img-container">
+                                <asp:Image ID="Image3"  runat="server" ImageUrl="https://iconape.com/wp-content/files/we/336070/svg/336070.svg"/>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <%-- Fifth column (Follow Us) --%>
+                <div class="follow-us">
+                    <div class="header-container">
+                        <h1 class="header-text">FOLLOW US</h1>
+                    </div>
+                    <ul class="fs-contents">
+                        <li>
+                            <div class="text-img-container">
+                                <div class="icon-container">
+                                    <asp:Image ID="fb"  runat="server" ImageUrl="https://img.icons8.com/?size=100&id=118467&format=png&color=000000"/>
+                                </div>
+                                <asp:HyperLink ID="fblink" runat="server" CssClass="link" NavigateUrl="https://www.facebook.com/jupeng.ng" >Facebook</asp:HyperLink>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text-img-container">
+                                <div class="icon-container">
+                                    <asp:Image ID="twitter" runat="server" ImageUrl="https://img.icons8.com/?size=100&id=60014&format=png&color=000000"/>
+                                </div>
+                                <asp:HyperLink ID="twitterlink" runat="server" CssClass="link" NavigateUrl="https://www.facebook.com/jupeng.ng" >Twitter</asp:HyperLink>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text-img-container">
+                                <div class="icon-container">
+                                    <asp:Image ID="ig" runat="server" ImageUrl="https://img.icons8.com/?size=100&id=32309&format=png&color=000000"/>
+                                </div>
+                                <asp:HyperLink ID="iglink" runat="server" CssClass="link" NavigateUrl="https://www.facebook.com/jupeng.ng" >Instagram</asp:HyperLink>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text-img-container">
+                                <div class="icon-container">
+                                    <asp:Image ID="wc" runat="server" ImageUrl="https://img.icons8.com/?size=100&id=100422&format=png&color=000000"/>
+                                </div>
+                                <asp:HyperLink ID="wclink" runat="server" CssClass="link" NavigateUrl="https://www.facebook.com/jupeng.ng" >WeChat</asp:HyperLink>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text-img-container">
+                                <div class="icon-container">
+                                    <asp:Image ID="wasap" runat="server" ImageUrl="https://img.icons8.com/?size=100&id=62855&format=png&color=000000"/>
+                                </div>
+                                <asp:HyperLink ID="wasaplink" runat="server" CssClass="link" NavigateUrl="https://www.facebook.com/jupeng.ng" >WhatsApp</asp:HyperLink>
+                            </div>
+                        </li>
+                    </ul>
+            </div>
+            </div>
+            <hr class="divider"/>
+            <div class="bot-footer">
+                <h3 class="f-text">Copyright 2024. <sup>&#169;</sup>CardCraze Xiamen University Malaysia Education. All Rights Reserved.</h3>
+                <h3 class="f-text">Country & Region: Singapore | Indonesia | Thailand |Malaysia | Vietnam | Philippines | Brazil | México | Colombia | Chile | Taiwan.</h3>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
